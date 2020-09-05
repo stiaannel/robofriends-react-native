@@ -1,3 +1,3 @@
-# react-native-search-app
-
-Test app using react-native in Expo
+# React-Native Robofriends App
+---
+Test app with react-native based on *[aneagoie/robofriends](https://github.com/aneagoie/robofriends)*.

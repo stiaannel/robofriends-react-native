@@ -10,13 +10,12 @@ export default function Cards(props) {
           source={{
             uri:
               'https://robohash.org/' +
-              props.username +
-              props.name +
+              props.username + props.id +
               'jane?set=set5',
           }}
         />
         <Card.Title
-          title={props.name + '(' + props.username + ')'}
+          title={`${props.id}: ${props.name}(${props.username})`}
           subtitle={props.email}
         />
       </Card>

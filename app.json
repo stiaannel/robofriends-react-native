@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "reactsearchapp",
+    "name": "react-native-robofriends",
     "slug": "reactsearchapp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "React native app based on https://github.com/aneagoie/robofriends",
+    "githubUrl": "https://github.com/stiaannel/robofriends-react-native"
   }
 }

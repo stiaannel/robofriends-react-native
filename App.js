@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { registerRootComponent } from 'expo';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
-import Constants from 'expo-constants';
 import CardList from './components/CardList';
 import { NavPanel, StatusBarConfig } from './components/LayoutComponents';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';

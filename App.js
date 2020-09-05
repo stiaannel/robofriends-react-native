@@ -1,21 +1,78 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { registerRootComponent } from 'expo';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import Constants from 'expo-constants';
+import CardList from './components/CardList';
+import { NavPanel, StatusBarConfig } from './components/LayoutComponents';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import SearchBar from './components/SearchBar';
 
-export default function App() {
+const theme = {
+  ...DefaultTheme,
+  roundness: 5,
+  dark: true,
+  mode: 'exact',
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#000000',
+    accent: '#1e1e1e',
+    background: '#1e1e1e',
+    surface: '#fff',
+    backdrop: '#1e1e1e',
+  },
+};
+
+export default function Main() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={theme}>
+      <App />
+    </PaperProvider>
   );
+}
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      robots: [],
+      searchvalue: '',
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((r) => r.json())
+      .then((ro) => this.setState({ robots: ro }));
+  }
+
+  onChange = (e) => {
+    this.setState({ searchvalue: e });
+  };
+
+  render() {
+    const filteredData = this.state.robots.filter((robots) => {
+      return robots.name
+        .toLowerCase()
+        .includes(this.state.searchvalue.toLowerCase());
+    });
+    return (
+      <View style={styles.container}>
+        <NavPanel />
+        <SearchBar onSChange={this.onChange} />
+        <StatusBarConfig />
+        <ScrollView>
+          <CardList robots={filteredData} />
+        </ScrollView>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#1e1e1e',
   },
 });
+
+registerRootComponent(Main);

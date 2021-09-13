@@ -23,6 +23,9 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "React native app based on https://github.com/aneagoie/robofriends",
-    "githubUrl": "https://github.com/stiaannel/robofriends-react-native"
+    "githubUrl": "https://github.com/stiaannel/robofriends-react-native",
+    "android": {
+      "package": "com.stiaann.reactnativerobofriends"
+    }
   }
 }

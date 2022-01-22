@@ -2,6 +2,8 @@ import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Cards from './Cards';
 import { ActivityIndicator, Colors } from 'react-native-paper';
+import { tailwind } from '../lib/tailwind';
+
 
 export default function CardList({ robots }) {
   const cardComponent = robots.map((user, i) => {
@@ -17,7 +19,7 @@ export default function CardList({ robots }) {
   });
   if (robots.length === 0) {
     return (
-      <View style={styles.loader}>
+      <View style={tailwind("flex")}>
         <ActivityIndicator
           animating={true}
           color={Colors.white}
@@ -29,11 +31,3 @@ export default function CardList({ robots }) {
     return <View>{cardComponent}</View>;
   }
 }
-
-const styles = StyleSheet.create({
-  loader: {
-    flex: 1,
-    backgroundColor: '#1e1e1e',
-    paddingTop: 50,
-  },
-});

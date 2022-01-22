@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import { Card, Avatar, Dialog, Portal  } from 'react-native-paper';
+import { tailwind } from "../lib/tailwind.js"
+
 
 export default function Cards(props) {
   return (
-    <View style={{ backgroundColor: '#1e1e1e' }}>
-      <Card style={{ margin: 8 }}>
+    <View>
+      <Card style={tailwind("mx-4 my-1 rounded-3xl bg-gray-100")}>
         <Card.Title
           title={`${props.name}`}
           subtitle={`Username: ${props.username.toLowerCase()}, Email: (${props.email.toLowerCase()})`}

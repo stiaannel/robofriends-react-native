@@ -25,5 +25,3 @@ export function StatusBarConfig() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({});

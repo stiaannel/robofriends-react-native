@@ -5,6 +5,7 @@ import CardList from './components/CardList';
 import { NavPanel, StatusBarConfig } from './components/LayoutComponents';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import SearchBar from './components/SearchBar';
+import { tailwind } from './lib/tailwind';
 
 const theme = {
   ...DefaultTheme,
@@ -55,23 +56,17 @@ class App extends Component {
         .includes(this.state.searchvalue.toLowerCase());
     });
     return (
-      <View style={styles.container}>
-        <NavPanel />
-        <SearchBar onSChange={this.onChange} />
-        <StatusBarConfig />
-        <ScrollView>
-          <CardList robots={filteredData} />
-        </ScrollView>
-      </View>
+      
+      <View style={tailwind("h-full bg-black p-3")}>
+      <NavPanel />
+      <SearchBar onSChange={this.onChange} />
+      <StatusBarConfig />
+      <ScrollView>
+        <CardList robots={filteredData} />
+      </ScrollView>
+    </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1e1e1e',
-  },
-});
 
 registerRootComponent(Main);
